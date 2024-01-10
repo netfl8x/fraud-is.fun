@@ -49,10 +49,27 @@
         Your browser does not support the audio tag.
     </audio>
 
-    <button id="startMusicButton">Start Music</button>
-
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            const backgroundMusic = document.getElementById('backgroundMusic');
+
+            if (backgroundMusic) {
+                const playPromise = backgroundMusic.play();
+
+                if (playPromise !== undefined) {
+                    playPromise.then(_ => {}).catch(error => {
+                        console.error('Autoplay was prevented:', error);
+
+                        // If autoplay is prevented, try playing after a user gesture
+                        document.addEventListener('click', function() {
+                            backgroundMusic.play().catch(error => {
+                                console.error('Autoplay still prevented after user interaction:', error);
+                            });
+                        });
+                    });
+                }
+            }
+
             const textElement = document.getElementById('typedText');
             const phrases = [
                 "netfl8x on top lol",
@@ -98,14 +115,6 @@
                 snowflake.style.animationDuration = `${Math.random() * 2 + 2}s`;
                 document.body.appendChild(snowflake);
             }
-
-            // Event listener to start the background music when the button is clicked
-            document.getElementById('startMusicButton').addEventListener('click', function() {
-                const backgroundMusic = document.getElementById('backgroundMusic');
-                backgroundMusic.play().catch(function(error) {
-                    console.error('Play was prevented:', error);
-                });
-            });
         });
     </script>
 </body>
