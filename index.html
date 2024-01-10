@@ -49,6 +49,8 @@
         Your browser does not support the audio tag.
     </audio>
 
+    <button id="startMusicButton">Start Music</button>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const textElement = document.getElementById('typedText');
@@ -97,11 +99,11 @@
                 document.body.appendChild(snowflake);
             }
 
-            // Ensure the background music plays after a user interaction (e.g., click)
-            document.body.addEventListener('click', function() {
+            // Event listener to start the background music when the button is clicked
+            document.getElementById('startMusicButton').addEventListener('click', function() {
                 const backgroundMusic = document.getElementById('backgroundMusic');
                 backgroundMusic.play().catch(function(error) {
-                    console.error('Autoplay was prevented:', error);
+                    console.error('Play was prevented:', error);
                 });
             });
         });
