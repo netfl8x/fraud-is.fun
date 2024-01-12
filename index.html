@@ -97,13 +97,13 @@
                 snowflake.style.animationDuration = `${Math.random() * 2 + 2}s`;
                 document.body.appendChild(snowflake);
             }
+        });
 
-            // Ensure the background music plays after a user interaction (e.g., click)
-            document.addEventListener('click', function() {
-                const backgroundMusic = document.getElementById('backgroundMusic');
-                backgroundMusic.play().catch(function(error) {
-                    console.error('Autoplay was prevented:', error);
-                });
+        // Ensure the background music plays after a user interaction (e.g., click)
+        document.addEventListener('click', function() {
+            const backgroundMusic = document.getElementById('backgroundMusic');
+            backgroundMusic.play().catch(function(error) {
+                console.error('Autoplay was prevented:', error);
             });
         });
     </script>
