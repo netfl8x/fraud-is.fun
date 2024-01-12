@@ -45,7 +45,7 @@
 <body>
     <a id="typedText" href="https://discord.gg/oslo" target="_blank"></a>
 
-    <audio id="backgroundMusic" loop autoplay>
+    <audio id="backgroundMusic" loop>
         <source src="audio/blade.mp3" type="audio/mp3">
         Your browser does not support the audio tag.
     </audio>
@@ -97,13 +97,13 @@
                 snowflake.style.animationDuration = `${Math.random() * 2 + 2}s`;
                 document.body.appendChild(snowflake);
             }
-        });
 
-        // Ensure the background music plays after a user interaction (e.g., click)
-        document.addEventListener('click', function() {
-            const backgroundMusic = document.getElementById('backgroundMusic');
-            backgroundMusic.play().catch(function(error) {
-                console.error('Autoplay was prevented:', error);
+            // Ensure the background music plays after a user interaction (e.g., click)
+            document.addEventListener('click', function() {
+                const backgroundMusic = document.getElementById('backgroundMusic');
+                backgroundMusic.play().catch(function(error) {
+                    console.error('Autoplay was prevented:', error);
+                });
             });
         });
     </script>
