@@ -22,7 +22,8 @@
             text-decoration: none; 
             font-size: 24px;
             font-family: Tahoma, Verdana, sans-serif;
-            position: relative; 
+            position: relative;
+            text-align: center; /* Center the text horizontally */
         }
 
         .snowflake {
@@ -40,15 +41,16 @@
 
         * {cursor: url(https://cur.cursors-4u.net/others/images3/oth256.png), auto !important;} 
     </style>
-    <script src="snow.js"></script>
 </head>
 <body>
     <a id="typedText" href="https://discord.gg/oslo" target="_blank"></a>
 
-    <audio id="backgroundMusic" loop autoplay>
-        <source src="audio/lucki.mp3" type="audio/mp3">
+    <audio id="backgroundMusic" loop>
+        <source src="audio/blade.mp3" type="audio/mp3">
         Your browser does not support the audio tag.
     </audio>
+
+    <button id="startMusicButton">Start Music</button>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -98,11 +100,11 @@
                 document.body.appendChild(snowflake);
             }
 
-            // Ensure the background music plays after a user interaction (e.g., click)
-            document.addEventListener('click', function() {
+            // Event listener to start the background music when the button is clicked
+            document.getElementById('startMusicButton').addEventListener('click', function() {
                 const backgroundMusic = document.getElementById('backgroundMusic');
                 backgroundMusic.play().catch(function(error) {
-                    console.error('Autoplay was prevented:', error);
+                    console.error('Play was prevented:', error);
                 });
             });
         });
