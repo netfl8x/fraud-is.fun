@@ -18,11 +18,10 @@
 
         a {
             color: #fff;
-            text-decoration: none;
+            text-decoration: none; 
             font-size: 24px;
             font-family: Tahoma, Verdana, sans-serif;
-            position: relative;
-            text-align: center; /* Center the text */
+            position: relative; 
         }
 
         .snowflake {
@@ -38,61 +37,15 @@
             }
         }
 
-        * {cursor: url(https://cur.cursors-4u.net/others/images3/oth256.png), auto !important;}
+        * {cursor: url(https://cur.cursors-4u.net/others/images3/oth256.png), auto !important;} 
     </style>
     <script src="snow.js"></script>
 </head>
 <body>
-    <a id="typedText" href="https://discord.gg/jak" target="_blank"></a>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>O.O</title>
-    <style>
-        body {
-            background-color: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            overflow: hidden;
-            user-select: none; /* Disable text selection for the entire body */
-        }
+    <a id="typedText" href="https://discord.gg/oslo" target="_blank"></a>
 
-        a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 24px;
-            font-family: Tahoma, Verdana, sans-serif;
-            position: relative;
-            text-align: center; /* Center the text */
-        }
-
-        .snowflake {
-            position: absolute;
-            color: #fff;
-            font-size: 20px;
-            animation: snowfall linear infinite;
-        }
-
-        @keyframes snowfall {
-            to {
-                transform: translateY(100vh);
-            }
-        }
-
-        * {cursor: url(https://cur.cursors-4u.net/others/images3/oth256.png), auto !important;}
-    </style>
-    <script src="snow.js"></script>
-</head>
-<body>
-    <a id="typedText" href="https://discord.gg/jak" target="_blank"></a>
-
-    <audio id="backgroundMusic" loop autoplay>
-        <source src="audio/amg.mp3" type="audio/mp3">
+    <audio id="backgroundMusic" loop>
+        <source src="audio/blade.mp3" type="audio/mp3">
         Your browser does not support the audio tag.
     </audio>
 
@@ -102,7 +55,7 @@
             const phrases = [
                 "netfl8x on top lol",
                 "xeno eldar",
-                ".gg/jak",
+                ".gg/oslo",
                 "credits to fraud.gay",
                 "(°-°) O.o"
             ];
@@ -115,23 +68,43 @@
                 return array;
             }
 
-            // Shuffle the phrases
-    <audio id="backgroundMusic" loop autoplay>
-        <source src="audio/amg.mp3" type="audio/mp3">
-        Your browser does not support the audio tag.
-    </audio>
+            // Shuffle the phrases array
+            shuffleArray(phrases);
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const textElement = document.getElementById('typedText');
-            const phrases = [
-                "netfl8x on top lol",
-                "xeno eldar",
-                ".gg/jak",
-                "credits to fraud.gay",
-                "(°-°) O.o"
-            ];
+            let index = 0;
 
-            function shuffleArray(array) {
-                for (let i = array.length - 1; i > 0; i--) {
-                    const j
+            function cycleText() {
+                textElement.textContent = phrases[index];
+                index = (index + 1) % phrases.length;
+                setTimeout(cycleText, 2000); // Change text every 2 seconds (adjust as needed)
+            }
+
+            // Start the cycling text on page load
+            cycleText();
+
+            const numberOfSnowflakes = 50;
+
+            for (let i = 0; i < numberOfSnowflakes; i++) {
+                createSnowflake();
+            }
+
+            function createSnowflake() {
+                const snowflake = document.createElement('div');
+                snowflake.className = 'snowflake';
+                snowflake.innerHTML = '❄';
+                snowflake.style.left = `${Math.random() * 100}vw`;
+                snowflake.style.animationDuration = `${Math.random() * 2 + 2}s`;
+                document.body.appendChild(snowflake);
+            }
+
+            // Ensure the background music plays after a user interaction (e.g., click)
+            document.body.addEventListener('click', function() {
+                const backgroundMusic = document.getElementById('backgroundMusic');
+                backgroundMusic.play().catch(function(error) {
+                    console.error('Autoplay was prevented:', error);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
